@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:600');
+
+html,body { 
+	box-sizing: border-box;
+	margin: 0;
+	margin-top: 50px;
+	font-family: 'Raleway', sans-serif;
+	 word-break: break-all;
+	}
+.edit{
+	display: none;
+}
+#todo{
+	background-color: #50c9e5;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.todo{
+	border: none;
+	border-radius: 50px;
+	list-style: none;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	background-color: #99d9e8;
+	-webkit-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+	box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+	
+}
+.top_input{
+	width: 50%;
+	border: none;
+	background-color:#99d9e8;
+	height: 50px;
+	font-size: 50px;
+	text-align: center;
+}
+.top_input:focus{
+    outline: none;
+}
+button:focus{
+    outline: none;
+}
+ul{
+	height: auto;
+	margin: auto;
+	width: 90%;
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	height: 60px;
+}
+li{
+	display: inline-block;
+	line-height: 25px;
+}
+.completed{
+	color: green;
+	background-color: black;
+}
+li p{
+	width: 100%;
+}
+.complete{
+	float: left;
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+}
+.delete{
+	float: right;
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+}
+.delete:hover{
+	float: right;
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+}
+button{
+	position: relative;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: solid 1px red;
+	background-color: white;
+	border-radius: 100%;
+	display: inline-block;	
+	width: 45px;
+	height: 45px;
+}

@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script src="https://unpkg.com/vue"></script>
+		<title>VUE TODO</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<div id="todo">
+			<div style="text-align: center;">
+			<input class="top_input" @keyup.enter="addTodo" v-model="txtInput" type="text">
+			</div>
+				<ul class="todo" v-for="todo in todos" v-bind:class="{completed: todo.complete}" >
+					<li class="complete" v-on:click="completeTodo(todo)"><button>&#9745</button></li>
+					<li v-on:dblclick="editTodo(todo)">
+						<p v-bind:class="{edit: todo.edit}">{{ todo.text }}</p>
+						<input v-model="todo.text" v-on:keyup.enter="exited(todo)"v-bind:class="{edit: !todo.edit}"><p v-bind:class="{edit: !todo.edit}" v-on:click="exited(todo)">zakoncz</p>
+					</li>
+					<li class="delete" v-on:click="deleteTodo(todo)"><button>&#9747</button></li>
+				</ul>
+		</div>
+
+
+
+
+
+
+	<script src="app.js"></script>
+	</body>
+</html>
