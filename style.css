@@ -5,115 +5,14 @@ html,body {
 	margin: 0;
 	font-family: 'Raleway', sans-serif;
 	 word-break: break-all;
+	 overflow-x: hidden;
 	}
 button:focus{
     outline: none;
 }
 
-.edit{
-	display: none;
-}
-#todo{
-	background-color: #f2f4f7;
-	border-radius: 25px;
-	border: 2px solid #b7c1e8;
-	width: 95%;
-	margin: 0 auto;
-	height: 90vh;
-	padding-top: 5px;
-
-}
-.todos{
-	overflow-y: scroll;
-	overflow-x: hidden;
-	height: 90%;
-}
-.todo{
-	border: none;
-	border-radius: 50px;
-	list-style: none;
-	text-align: center;
-	margin-top: 25px;
-	margin-bottom: 25px;
-	background-color: #99d9e8;
-	-webkit-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
-	-moz-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
-	box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
-
-	
-}
-.todo p{
-	cursor: pointer;
-}
-.top{
-
-}
-.top_input{
-	width: 50%;
-	border: none;
-	border-bottom: solid 2px;
-	background-color: transparent;
-	height: 50px;
-	font-size: 50px;
-	text-align: center;
-	font-family: 'Raleway', sans-serif;
-}
-.top_input:focus{
-    outline: none;
-
-}
-.edit_input{
-	background-color: transparent;
-	border: none;
-	font-family: 'Raleway', sans-serif;
-	line-height: 100%;
-	text-align: center;
-	font-size: 16px;
-	text-decoration: underline;
-	width: 100%;
-	height: 60px;
-}
-
-@keyframes showTask {
-    0% {opacity: 0; width: 0%}
-    100% {opacity: 1; width: 90%}
-}
-.todo{
-	width: 80%;
-
-}
-ul{
-	margin: auto;
-	padding: 0;
-	padding-left: 10px;
-	padding-right: 10px;
-	display: table;
-	min-height: 60px;
-	
-
-}
-li{
-	display: table-cell;
-    vertical-align: middle;
-}
-.completed{
-	color: #03bc25;
-}
-.completed p {
-	text-decoration: line-through;
-}
-li p{
-	width: 100%;
-}
-
-
-
-
-
-
-
-
-@keyframes onHoverComplete {
+@media screen and (min-width: 768px){
+	@keyframes onHoverComplete {
     from {background-color: transparent;}
     to {background-color: #03bc25; font-size: 30px; color: white;}
 }
@@ -157,11 +56,6 @@ li p{
 	animation-duration: 0.1s;
 	animation-fill-mode: forwards;
 }
-
-
-
-
-
 @keyframes onHoverDelete {
     from {background-color: transparent;}
     to {background-color: #e23d3d; font-size: 30px; color: white;}
@@ -186,13 +80,49 @@ li p{
 	animation-fill-mode: forwards;
 }
 
+
+#todo{
+	background-color: #f2f4f7;
+	border-radius: 25px;
+	border: 2px solid #b7c1e8;
+	width: 95%;
+	margin: 0 auto;
+	height: 90vh;
+	padding-top: 5px;
+}
+.todo{
+	border: none;
+	border-radius: 50px;
+	list-style: none;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	background-color: #99d9e8;
+	-webkit-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+	box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+}
+.top_input{
+	width: 50%;
+	border: none;
+	border-bottom: solid 2px;
+	background-color: transparent;
+	height: 50px;
+	font-size: 50px;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+.todo{
+	width: 80%;
+
+}
 .filters{
 	position: absolute;
 	bottom: 0;
 	left: 0;
-
 	display: table;
 	width: 96%;
+	vertical-align: center;
 }
 
 .filter_button{
@@ -236,5 +166,195 @@ li p{
 	animation-duration: 0.4s;
 	animation-fill-mode: forwards;
 }
+
+
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px){
+#todo{
+	background-color: #f2f4f7;
+	width: 100%;
+	height: 90vh;
+}
+.todo{
+	border: none;
+	border-radius: 50px;
+	list-style: none;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #99d9e8;
+	-webkit-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+	box-shadow: 3px 5px 16px -2px rgba(0,0,0,0.75);
+}
+.top_input{
+	width: 80%;
+	border: none;
+	border-bottom: solid 2px;
+	background-color: transparent;
+	height: 50px;
+	font-size: 25px;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+.complete{
+	display: table-cell;
+	vertical-align: middle;
+
+}
+.complete_button{
+	border: solid 2px #03bc25;
+	background-color: transparent;
+	border-radius: 100%;
+	cursor: pointer;
+	width: 45px;
+	height: 45px;
+	font-size: 20px;
+}
+
+.completed_button{
+	border: solid 2px #03bc25;
+	background-color: #03bc25;;
+	border-radius: 100%;
+	cursor: pointer;
+	width: 45px;
+	height: 45px;
+	font-size: 30px;
+	color: white;
+}
+.delete{
+	display: table-cell;
+	vertical-align: middle;
+
+}
+.delete_button{
+	border: solid 2px #e23d3d;
+	background-color: transparent;
+	border-radius: 100%;
+	cursor: pointer;
+	width: 45px;
+	height: 45px;
+	font-size: 20px;
+}
+
+.todo{
+	width: 90%;
+
+}
+.filters{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 10px;
+	display: table;
+	width: 96%;
+}
+
+.filter_button{
+	background-color: transparent;
+	border: none;
+	font-family: 'Raleway', sans-serif;
+	padding: 10px;
+	border-radius: 25px;
+	border: 2px solid #b7c1e8;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	font-size: 10px;
+}
+.fil_active{
+	background-color: #8accdb;
+	border: none;
+	font-size: 10px;
+	font-family: 'Raleway', sans-serif;
+	padding: 10px;
+	border-radius: 25px;
+	border: 2px solid #b7c1e8;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+}
+
+
+
+
+
+
+
+
+
+.edit{
+	display: none;
+}
+
+.todos{
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 90%;
+}
+.todo p{
+	cursor: pointer;
+}
+
+.top_input:focus{
+    outline: none;
+
+}
+.edit_input{
+	background-color: transparent;
+	border: none;
+	font-family: 'Raleway', sans-serif;
+	line-height: 100%;
+	text-align: center;
+	font-size: 16px;
+	text-decoration: underline;
+	width: 100%;
+	height: 60px;
+}
+
+ul{
+	margin: auto;
+	padding: 0;
+	display: table;
+	min-height: 60px;
+	
+
+}
+li{
+	display: table-cell;
+    vertical-align: middle;
+}
+.completed{
+	color: #03bc25;
+}
+.completed p {
+	text-decoration: line-through;
+}
+li p{
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
