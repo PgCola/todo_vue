@@ -4,25 +4,36 @@
 		<title>VUE TODO</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
 	</head>
 	<body>
 		<div id="todo">
-			<div style="text-align: center;">
-			<input class="top_input" @keyup.enter="addTodo" v-model="txtInput" type="text">
+			<div class="top" style="text-align: center;">
+			<input class="top_input" @keyup.enter="addTodo" v-model="txtInput" type="text" placeholder="Dodaj nowy task+">
 			</div>
+			<div class="todos">
 				<ul class="todo" v-for="todo in reverse"  v-bind:class="{completed: todo.complete}" >
-					<li class="complete" v-on:click="completeTodo(todo)"><button>&#9745</button></li>
-					<li v-on:dblclick="editTodo(todo)">
-						<p v-bind:class="{edit: todo.edit}">{{ todo.text }}</p>
-						<input v-model="todo.text" v-on:keyup.enter="exited(todo)"v-bind:class="{edit: !todo.edit}"><p v-bind:class="{edit: !todo.edit}" v-on:click="exited(todo)">zakoncz</p>
-					</li>
-					<li class="delete" v-on:click="deleteTodo(todo)"><button>&#9747</button></li>
+					<li class="complete" v-on:click="completeTodo(todo)"><button v-bind:class="{complete_button: !todo.complete, completed_button: todo.complete}"><i class="fas fa-check"></i></button></li>
+					<li style="width: 86%">
+						<div>
+							<p v-bind:class="{edit: todo.edit}" v-on:click="editTodo(todo)">{{ todo.text }}</p>
+						<div style="text-align: center; width: 100%;">
+						<input class="edit_input" type="text" v-model="todo.text" v-on:keyup.enter="exited(todo)" v-bind:class="{edit: !todo.edit}">
+						</div>
+						
+						<div v-bind:class="{edit: !todo.edit}"></div>
+						</div>
+					</li> 
+					<li class="delete" v-on:click="deleteTodo(todo)"><button class="delete_button"><i class="fas fa-times"></i></button></li>
 				</ul>
+			</div>
 
-			<ul style="text-align: center;">
-				<li v-on:click="todoShowKey = 'all'" style="float: left;">Wszystkie</li>
-				<li v-on:click="todoShowKey = 'incomplete'">Do zrobienia</li>
-				<li v-on:click="todoShowKey = 'complete'" style="float: right;">Zakończone</li>
+			<ul class="filters" style="text-align: center;">
+				<li v-on:click="todoShowKey = 'all'"><button v-bind:class="getFilClass('all')">Wszystkie</button></li>
+				<li v-on:click="todoShowKey = 'incomplete'"><button v-bind:class="getFilClass('incomplete')"></i>Do zrobienia</button></li>
+				<li v-on:click="todoShowKey = 'complete'"><button v-bind:class="getFilClass('complete')"><i class="fas fa-check"></i>Zakończone</button></li>
 			</ul>
 		</div>
 

@@ -3,8 +3,11 @@ var todoStorage ={
 
 	fetch: function(){
 		var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) ||
-		('[{"text": "Na górze dodajesz task", "complete": false, "edit": false},{"text": "Klinknij dwa razy na mnie żeby edytowac", "complete": false, "edit": false},{"text": "Po lewej przycisk jak już zrobione", "complete": false, "edit": false},{"text": "Po prawej jak już mnie nie potrzebujesz", "complete": false, "edit": false}]').toString('utf-8')
+		('[{"text": "Po prawej jak już mnie nie potrzebujesz", "complete": false, "edit": false}, {"text": "Po lewej przycisk jak już zrobione", "complete": false, "edit": false}, {"text": "Kliknij na mnie żeby edytowac", "complete": false, "edit": false}, {"text": "Na górze dodajesz task", "complete": false, "edit": false}]').toString('utf-8')
 		);
+		for(var i=0; i+1<=todos.length; i++){
+			todos[i]['edit'] = false;
+		}
 		return todos;
 	},
 	save: function(todos){
@@ -66,7 +69,6 @@ var todo = new Vue({
 
 			Vue.delete(place, "complete");
 			Vue.set(place, "complete", !bool);
-			console.log(place["complete"]);
 		 	},
 		 editTodo: function(todo){
 		 	var index = this.todos.indexOf(todo);
@@ -75,7 +77,6 @@ var todo = new Vue({
 
 			Vue.delete(place, "edit");
 			Vue.set(place, "edit", !bool);
-			console.log(place["edit"]);
 		 },
 		 filterTodo: function(filter){
 		 	this.show = filter;
@@ -88,8 +89,15 @@ var todo = new Vue({
 			Vue.delete(place, "edit");
 			Vue.set(place, "edit", false);
 		 },
-		checker: function(){
-			console.log(this.show);
+		getFilClass: function(filter){
+			return{
+				'fil_active': filter==this.todoShowKey,
+				'filter_button': filter!=this.todoShowKey
+			}
+
+		},
+		getTickClass: function(){
+
 		}
 	}
 
