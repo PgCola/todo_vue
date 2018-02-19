@@ -10,7 +10,7 @@
 			<div style="text-align: center;">
 			<input class="top_input" @keyup.enter="addTodo" v-model="txtInput" type="text">
 			</div>
-				<ul class="todo" v-for="todo in todos" v-bind:class="{completed: todo.complete}" >
+				<ul class="todo" v-for="todo in reverse"  v-bind:class="{completed: todo.complete}" >
 					<li class="complete" v-on:click="completeTodo(todo)"><button>&#9745</button></li>
 					<li v-on:dblclick="editTodo(todo)">
 						<p v-bind:class="{edit: todo.edit}">{{ todo.text }}</p>
@@ -18,6 +18,12 @@
 					</li>
 					<li class="delete" v-on:click="deleteTodo(todo)"><button>&#9747</button></li>
 				</ul>
+
+			<ul style="text-align: center;">
+				<li v-on:click="todoShowKey = 'all'" style="float: left;">Wszystkie</li>
+				<li v-on:click="todoShowKey = 'incomplete'">Do zrobienia</li>
+				<li v-on:click="todoShowKey = 'complete'" style="float: right;">Zakończone</li>
+			</ul>
 		</div>
 
 

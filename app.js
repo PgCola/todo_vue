@@ -1,18 +1,3 @@
-// var filters = {
-//   all: function(todos) {
-//     return todos;
-//   },
-//   complete: function(todos) {
-//     return todos.filter(function(todo) {
-//       return todo.complete;
-//     });
-//   },
-//   incomplete: function(todos) {
-//     return todos.filter(function(todo) {
-//       return !todo.complete;
-//     });
-//   }
-// }
 var STORAGE_KEY = 'vue_todo_pgorka'
 var todoStorage ={
 
@@ -31,6 +16,7 @@ var todoStorage ={
 var todo = new Vue({
 	el:"#todo",
 	data:{
+		todoShowKey: 'all',
 		txtInput:'',
 		todos:{
 			text: '',
@@ -39,12 +25,25 @@ var todo = new Vue({
 		todos: todoStorage.fetch(),
 		
 	},
-
 	watch: {
 		todos:{
 		handler: function(todos) {
 	        todoStorage.save(todos);
 	      }
+		}
+	},
+	computed:{
+		reverse: function(){
+			return this[this.todoShowKey].slice().reverse();
+		},
+		all: function(){
+			return this.todos;
+		},
+		incomplete: function(){
+			return this.todos.filter((todos) => todos.complete == false);
+		},
+		complete: function(){
+			return this.todos.filter((todos) => todos.complete == true);
 		}
 	},
 	methods:{
@@ -78,6 +77,9 @@ var todo = new Vue({
 			Vue.set(place, "edit", !bool);
 			console.log(place["edit"]);
 		 },
+		 filterTodo: function(filter){
+		 	this.show = filter;
+		 },
 		 exited: function(todo){
 		 	var index = this.todos.indexOf(todo);
 			var place = this.todos[index];
@@ -87,7 +89,7 @@ var todo = new Vue({
 			Vue.set(place, "edit", false);
 		 },
 		checker: function(){
-			console.log(localStorage.getItem(STORAGE_KEY));
+			console.log(this.show);
 		}
 	}
 
