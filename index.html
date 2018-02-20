@@ -11,8 +11,9 @@
 	</head>
 	<body>
 		<div id="todo">
-			<div class="top" style="text-align: center;">
-			<input class="top_input" @keyup.enter="addTodo" v-model="txtInput" type="text" placeholder="Dodaj nowy task+">
+			<div class="top" style="text-align: center; height: 60px;">
+			<input class="top_input" @keyup.enter="addTodo" v-model="txtInput" type="text" placeholder="Dodaj nowy task">
+			<input class="top_button" type="button" value="+" @click="addTodo">
 			</div>
 			<div class="todos">
 				<ul class="todo" v-for="todo in reverse"  v-bind:class="{completed: todo.complete}" >
