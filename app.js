@@ -1,3 +1,8 @@
+Vue.config.performance = false;
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
+
 var STORAGE_KEY = 'vue_todo_pgorka'
 var todoStorage ={
 
@@ -16,11 +21,13 @@ var todoStorage ={
 }
 
 
+
 var todo = new Vue({
 	el:"#todo",
 	data:{
 		todoShowKey: 'all',
 		txtInput:'',
+		i: 1,
 		todos:{
 			text: '',
 			complete: false,
@@ -103,4 +110,4 @@ var todo = new Vue({
 
 
 
-})
+});

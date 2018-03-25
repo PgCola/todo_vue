@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:600");
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  word-break: break-all;
+  overflow-x: hidden; }
+
+button:focus {
+  outline: none; }
+
+#todo {
+  width: 100%;
+  margin: 0 auto;
+  height: 90vh;
+  padding-top: 5px; }
+  #todo .top {
+    text-align: center;
+    padding: 3em;
+    height: 40px; }
+    #todo .top .top_input {
+      width: 50%;
+      border: none;
+      border-bottom: solid 2px #000000;
+      background-color: transparent;
+      height: 50px;
+      font-size: 50px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif; }
+    #todo .top .top_button {
+      background-color: #565656;
+      color: white;
+      border: none;
+      font-size: 30px;
+      height: 50px;
+      width: 50px;
+      position: relative;
+      left: -0.5%;
+      transform: translate(-0.5%, -17%);
+      outline: none;
+      cursor: pointer;
+      border-bottom: solid 4px #000000; }
+    #todo .top .top_button:active {
+      transform: translate(-0.5%, -12%);
+      border-bottom: 1px solid; }
+    @media only screen and (max-width: 992px) {
+      #todo .top {
+        padding: 1.5em; }
+        #todo .top .top_input {
+          width: 70%; } }
+    @media only screen and (max-width: 768px) {
+      #todo .top {
+        padding: 1em; }
+        #todo .top .top_input {
+          width: 70%;
+          font-size: 40px; }
+        #todo .top .top_button {
+          font-size: 25px;
+          transform: translate(-0.5%, -15%); } }
+    @media only screen and (max-width: 500px) {
+      #todo .top {
+        padding: 0.5em; }
+        #todo .top .top_input {
+          width: 80%;
+          font-size: 25px; }
+        #todo .top .top_button {
+          font-size: 25px;
+          transform: translate(-3%, -3%); } }
+  #todo .todos {
+    margin-bottom: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 90%;
+    padding: 0 0 0 0; }
+    #todo .todos .list {
+      display: block;
+      margin: 0;
+      padding-left: 0; }
+      #todo .todos .list .todo {
+        width: 60%;
+        height: 90px;
+        display: inline-block;
+        left: 50%;
+        position: relative;
+        transform: translateX(-50%);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em; }
+        #todo .todos .list .todo .options {
+          list-style: none;
+          padding-left: 0;
+          position: relative;
+          width: 100%;
+          height: 100%; }
+          #todo .todos .list .todo .options .complete {
+            position: absolute;
+            display: inline-block;
+            left: 0;
+            top: 50%;
+            height: 100%;
+            transform: translateY(-50%); }
+            #todo .todos .list .todo .options .complete .complete_button {
+              border: solid 2px #03bc25;
+              background-color: transparent;
+              cursor: pointer;
+              width: 45px;
+              height: 45px;
+              font-size: 20px;
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+              transition: all 0.25s; }
+            #todo .todos .list .todo .options .complete .complete_button:hover {
+              background-color: #03bc25;
+              font-size: 30px;
+              color: white;
+              transition: all 0.25s; }
+            #todo .todos .list .todo .options .complete .completed_button {
+              border: solid 2px #03bc25;
+              background-color: #03bc25;
+              cursor: pointer;
+              width: 45px;
+              height: 100%;
+              top: 0%;
+              position: relative;
+              transform: translateY(0%);
+              font-size: 30px;
+              color: white;
+              transition: all 0.25s; }
+          #todo .todos .list .todo .options .text {
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); }
+          #todo .todos .list .todo .options .delete {
+            position: absolute;
+            display: inline-block;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%); }
+            #todo .todos .list .todo .options .delete .delete_button {
+              border: solid 2px #e23d3d;
+              background-color: transparent;
+              cursor: pointer;
+              width: 45px;
+              height: 45px;
+              font-size: 20px;
+              transition: all 0.25s; }
+            #todo .todos .list .todo .options .delete .delete_button:hover {
+              background-color: #e23d3d;
+              font-size: 30px;
+              color: white;
+              transition: all 0.25s; }
+      @media only screen and (max-width: 992px) {
+        #todo .todos .list .todo {
+          width: 80%; } }
+      @media only screen and (max-width: 768px) {
+        #todo .todos .list .todo {
+          width: 80%;
+          height: 70px; } }
+      @media only screen and (max-width: 500px) {
+        #todo .todos .list .todo {
+          width: 90%;
+          height: 60px; } }
+  #todo .filters {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    text-align: center;
+    display: inline-block;
+    list-style-type: none;
+    background-color: #485ff2;
+    border-bottom: 5px solid #3344b2;
+    -webkit-box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.75); }
+    #todo .filters li {
+      display: inline-block;
+      width: 32%; }
+      #todo .filters li .filter_button {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        padding: 10px;
+        transition: 0.5s; }
+      #todo .filters li .filter_button:hover {
+        background-color: #3344b2;
+        color: white;
+        transition: 0.5s; }
+      #todo .filters li .fil_active {
+        width: 100%;
+        background-color: #3344b2;
+        border: none;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        padding: 10px;
+        color: white; }
+    @media only screen and (max-width: 992px) {
+      #todo .filters {
+        width: 70%; } }
+    @media only screen and (max-width: 768px) {
+      #todo .filters {
+        width: 80%; }
+        #todo .filters li .filter_button {
+          font-size: 15px; }
+        #todo .filters li .fil_active {
+          font-size: 15px; } }
+    @media only screen and (max-width: 500px) {
+      #todo .filters {
+        width: 100%; }
+        #todo .filters li .filter_button {
+          font-size: 12px; }
+        #todo .filters li .fil_active {
+          font-size: 12px; } }
+
+.edit {
+  display: none; }
+
+.todo p {
+  cursor: pointer; }
+
+.top_input:focus {
+  outline: none; }
+
+.edit_input {
+  background-color: transparent;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  line-height: 100%;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: underline;
+  width: 100%;
+  height: 60px; }
+
+.completed {
+  color: #03bc25;
+  background-color: #03bc25b6;
+  -webkit-box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.75);
+  transition: all 0.5s; }
+
+.completed p {
+  color: white;
+  transition: all 0.5s; }
+
+.list-enter-active, .list-leave-active {
+  transition: all 0.3s; }
+
+.list-enter, .list-leave-to {
+  margin-left: 100%; }
+
+/*# sourceMappingURL=style.css.map */
